@@ -33,6 +33,7 @@ public func assertSnapshot<Value, Format>(
   named name: String? = nil,
   record recording: Bool = false,
   timeout: TimeInterval = 5,
+  bundle: Bundle? = nil,
   file: StaticString = #file,
   testName: String = #function,
   line: UInt = #line
@@ -44,6 +45,7 @@ public func assertSnapshot<Value, Format>(
     named: name,
     record: recording,
     timeout: timeout,
+    bundle: bundle,
     file: file,
     testName: testName,
     line: line
@@ -67,6 +69,7 @@ public func assertSnapshots<Value, Format>(
   as strategies: [String: Snapshotting<Value, Format>],
   record recording: Bool = false,
   timeout: TimeInterval = 5,
+  bundle: Bundle? = nil,
   file: StaticString = #file,
   testName: String = #function,
   line: UInt = #line
@@ -79,6 +82,7 @@ public func assertSnapshots<Value, Format>(
       named: name,
       record: recording,
       timeout: timeout,
+      bundle: bundle,
       file: file,
       testName: testName,
       line: line
@@ -101,6 +105,7 @@ public func assertSnapshots<Value, Format>(
   as strategies: [Snapshotting<Value, Format>],
   record recording: Bool = false,
   timeout: TimeInterval = 5,
+  bundle: Bundle? = nil,
   file: StaticString = #file,
   testName: String = #function,
   line: UInt = #line
@@ -112,6 +117,7 @@ public func assertSnapshots<Value, Format>(
       as: strategy,
       record: recording,
       timeout: timeout,
+      bundle: bundle,
       file: file,
       testName: testName,
       line: line

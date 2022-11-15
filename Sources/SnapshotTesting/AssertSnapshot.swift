@@ -167,6 +167,7 @@ public func verifySnapshot<Value, Format>(
   record recording: Bool = false,
   snapshotDirectory: String? = nil,
   timeout: TimeInterval = 5,
+  bundle: Bundle? = nil,
   file: StaticString = #file,
   testName: String = #function,
   line: UInt = #line
@@ -199,7 +200,7 @@ public func verifySnapshot<Value, Format>(
       }
 
       let testName = sanitizePathComponent(testName)
-      let myBundle = Bundle(for: CleanCounterBetweenTestCases.self)
+      let myBundle = bundle ?? Bundle(for: CleanCounterBetweenTestCases.self)
         let snapshotFileUrl = myBundle.path(forResource: "\(testName).\(identifier)", ofType: snapshotting.pathExtension).map({ URL(fileURLWithPath: $0) })
           ?? snapshotDirectoryUrl
               .appendingPathComponent("\(testName).\(identifier)")
